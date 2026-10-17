@@ -155,29 +155,7 @@ public class PalidromoAir {
 
 
     //imprimir pasajeros
-    public int printPassengers(int i) {
-
-    if (i>=capacidad) {
-        return 0;
-    }
-
-    if (i==0){
-        System.out.println("Lista de pasajeros: ");
-    }
-
-    if (asientos[i]!=null) {
-        System.out.println("Asiento: " + (i + 1));
-        System.out.println("Nombre: " + asientos[i].nombrePasajero);
-        System.out.println("Monto pagado: " + asientos[i].montoPagado);
-        System.out.println("Monto original: " + precioBase);
-        System.out.println("Es palindromo: "+isPalindromo(asientos[i].nombrePasajero,0,asientos[i].nombrePasajero.length() - 1));
-        System.out.println("---");
-        return 1 + printPassengers(i + 1);
-    }
-    return printPassengers(i + 1);
-}
-
-
+   
 
 
     //vender lso tickes 
