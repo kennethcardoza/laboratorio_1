@@ -1,46 +1,50 @@
 package recursividad_aerolinea;
 
-/**
- *
- * @author kendr
- */
 public class Ticket {
-    public static String nombrePasajero;
-    public static int montoOriginal=100;
-    public static int montoPagado;
-    public static boolean palindromo;
 
-    public static String getNombrePasajero() {
+    public String nombrePasajero;
+    public int montoOriginal=100;
+    public int montoPagado;
+    public boolean palindromo;
+
+    public Ticket(String nombrePasajero, double montoOriginal,
+                  double montoPagado, boolean palindromo) {
+
+        this.nombrePasajero=nombrePasajero;
+        this.montoOriginal=(int)montoOriginal;
+        this.montoPagado=(int)montoPagado;
+        this.palindromo=palindromo;
+    }
+
+    public String getNombrePasajero(){
         return nombrePasajero;
     }
 
-    public static void setNombrePasajero(String nombrePasajero) {
-        Ticket.nombrePasajero = nombrePasajero;
+    public void setNombrePasajero(String nombrePasajero){
+        this.nombrePasajero = nombrePasajero;
     }
 
-    public static int getMontoOriginal() {
+    public int getMontoOriginal(){
         return montoOriginal;
     }
 
-    public static void setMontoOriginal(int montoOriginal) {
-        Ticket.montoOriginal = montoOriginal;
+    public void setMontoOriginal(int montoOriginal){
+        this.montoOriginal=montoOriginal;
     }
 
-    public static int getMontoPagado() {
+    public int getMontoPagado(){
         return montoPagado;
     }
 
-    public static void setMontoPagado(int montoPagado) {
-        Ticket.montoPagado = montoPagado;
+    public void setMontoPagado(int montoPagado){
+        this.montoPagado=montoPagado;
     }
 
-    public static boolean isPalindromo() {
+    public boolean isPalindromo() {
         return palindromo;
     }
 
-    public static void setPalindromo(boolean palindromo) {
-        Ticket.palindromo = palindromo;
+    public void setPalindromo(boolean palindromo){
+        this.palindromo=palindromo;
     }
-    
-    
 }
