@@ -149,7 +149,66 @@ public class PalidromoAir {
        
        return true;
     }
-    
+
+    //Cambios Kendrick, impresion de los nombres de los psajeros y vender tickets
+
+
+
+    //imprimir pasajeros
+    public int printPassengers(int i) {
+
+    if (i>=capacidad) {
+        return 0;
+    }
+
+    if (i==0){
+        System.out.println("Lista de pasajeros: ");
+    }
+
+    if (asientos[i]!=null) {
+        System.out.println("Asiento: " + (i + 1));
+        System.out.println("Nombre: " + asientos[i].nombrePasajero);
+        System.out.println("Monto pagado: " + asientos[i].montoPagado);
+        System.out.println("Monto original: " + precioBase);
+        System.out.println("Es palindromo: "+isPalindromo(asientos[i].nombrePasajero,0,asientos[i].nombrePasajero.length() - 1));
+        System.out.println("---");
+        return 1 + printPassengers(i + 1);
+    }
+    return printPassengers(i + 1);
+}
+
+
+
+
+    //vender lso tickes 
+    public boolean sellTicket(String nombre) {
+
+    if (nombre==null || nombre.trim().isEmpty()) {
+        JOptionPane.showMessageDialog(null, "ingrese un nombre valido");
+        return false;
+    }
+    int asiento=firstAvailable(0);
+    if (asiento==-1) {
+        JOptionPane.showMessageDialog(null, "No hay asientos libres");
+        return false;
+    }
+    if (searchPassenger(nombre, 0) !=-1) {
+        JOptionPane.showMessageDialog(null, "Pasajero ya registrado");
+        return false;
+    }
+
+    boolean palindromo=isPalindromo(nombre, 0, nombre.length()-1);
+    double monto=precioBase;
+
+    if (palindromo) {
+        monto=precioBase-(precioBase*descuento);
+    }
+
+    asientos[asiento]=new Ticket(nombre, precioBase, monto, palindromo);
+
+    JOptionPane.showMessageDialog(null,"Boleto vendido correctamente\n"+"Asiento: "+(asiento+1)+"\n"+"Pasajero: "+nombre+"\n"+"Monto original: $"+precioBase+"\n"+"Monto pagado: $"+monto+"\n"+"Es palindromo: "+palindromo);
+    return true;
+}
     
     
    
