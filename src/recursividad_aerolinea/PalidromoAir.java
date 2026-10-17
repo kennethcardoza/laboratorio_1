@@ -63,27 +63,8 @@ public class PalidromoAir {
         return isPalindromo(nombre,ini+1,fin-1);
     }
     
-    
-    
-    public int printPassengers(int i){
+
         
-        if(i>=30){
-            return -1;
-        }
-        
-        if(asientos[i]==null){
-            
-            return -1;
-        }
-        
-       
-        
-        
-        
-        return printPassengers(i+1);
-    }
-    
-    
     public void reset(int i){
         if(i>=30){
             return;
@@ -154,11 +135,28 @@ public class PalidromoAir {
 
 
 
-    //imprimir pasajeros
+    //imprimir pasajeros, recursividad
+    public int printPassengers(int i) {
+
+    if (i >= capacidad) {
+        return 0;
+    }
+
+    if (asientos[i] != null) {
+        System.out.println("Asiento: "+(i+1));
+        System.out.println("Nombre: "+asientos[i].nombrePasajero);
+        System.out.println("Monto pagado: " + asientos[i].montoPagado);
+        System.out.println("Monto original: "+asientos[i].montoOriginal);
+        System.out.println("Es palindromo: "+asientos[i].palindromo);
+        System.out.println("-------");
+        return 1 + printPassengers(i+1);
+    }
+    return printPassengers(i+1);
+}
    
 
 
-    //vender lso tickes 
+    //vender los tickes, proceso
     public boolean sellTicket(String nombre) {
 
     if (nombre==null || nombre.trim().isEmpty()) {
